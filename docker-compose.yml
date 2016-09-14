@@ -1,0 +1,17 @@
+version: '2'
+services:
+
+  db:
+    build:
+        context: db
+    ports:
+        - "5432:5432"
+    links:
+    - beer-redis
+
+  beer-redis:
+    image: redis
+    ports:
+        - "6380:6379"
+# volumes:
+#   logvolume01: {}
